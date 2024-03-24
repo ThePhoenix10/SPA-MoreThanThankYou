@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Than Thank You</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="logo.png">  
+</head>
+<body>
+    <iframe id = "iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfbVc3OGGjj81mbmEp93gwAYu5PcCkKIffZXO3hh8mNwnpebQ/viewform?embedded=true" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <img id = "close" src="the x.png">
+    <div id = "everything">
+        <div id="panel1">
+            <h2 id = "description">
+                On average, humans say thank you about 80 BILLION times a day, around the world. What if we could turn these into something more, and foster real connections? This is #MoreThanThankYou.
+            </h2>
+            <h1 id="title">More Than Thank You</h1>
+            <button id="button">Submit Stories</button>
+    
+        </div>
+        <br>
+        <div id="slideshow">
+            <img id="left" src="back.png" class = "arrows">
+            <img id="right" src="image.png" class = "arrows">
+            <div id="slider">
+                <input type="radio" name="slider" id="slide1" checked>
+                <input type="radio" name="slider" id="slide2">
+                <input type="radio" name="slider" id="slide3">
+                <input type="radio" name="slider" id="slide4">
+                <div id="slides">
+                    <div id="overflow">
+                        <div class="inner">
+                            <div class="slide slide_1">
+                                <div class="slide-content">
+                                    <img id = "comic1" src="Comic 1.jpeg" class = "images">
+                                </div>
+                            </div>
+                            <div class="slide slide_2">
+                                <div class="slide-content">
+                                    <img src="Oven.png" class = "images">
+                                </div>
+                            </div>
+                            <div class="slide slide_3">
+                                <div class="slide-content">
+                                    <img src="Oven.png" class = "images">
+                                </div>
+                            </div>
+                            <div class="slide slide_4">
+                                <div class="slide-content">
+                                    <img src="Oven.png" class = "images">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="controls">
+                    <label for="slide1"></label>
+                    <label for="slide2"></label>
+                    <label for="slide3"></label>
+                    <label for="slide4"></label>
+                </div>
+                <div id="bullets">
+                    <label for="slide1"></label>
+                    <label for="slide2"></label>
+                    <label for="slide3"></label>
+                    <label for="slide4"></label>
+                </div>
+            </div>
+        </div>
+        <div id = "volunteer">
+            <h1 id = "voltitle">Volunteer With Us</h1>
+            <ul id="list">
+                <li id = "list1">Creates kindness and fosters inclusivity in our communities, as we build connections</li>
+                <li id = "list2">Gives you an opportunity to start a chapter in your school, your city, or become a core volunteer in our group</li>
+                <li id  = "list3">Hleps you to practice gratitude in your everyday lives</li>
+            </ul>
+            <ul id = "roles">
+                <li>School Chapter Head</li>
+                <li>City Chapter Head</li>
+                <li>Core Volunteer Group Head</li>
+            </ul>
+            <a href = "https://docs.google.com/forms/d/e/1FAIpQLSfrPY0oSWCmxO2qZEwlyK_ySoApigBfPJgDmFTl3rqS_xKJ_w/viewform" target="_blank">
+                <button id = "signup">Sign Up</button>
+            </a>        
+        </div>
+        <div id="practice">
+            <h1 id="title3">How Can We Practice This In Our Daily Lives?</h1>
+            <div id="examples">
+                <img src="Telephone.png" id="telephone" class="icons">
+                <h3 class="bullets" id="bulletone">Call or chat with your grandparents</h3>
+                <img src="Oven.png" id="oven" class="icons">
+                <h3 id="bullettwo" class="bullets">Cooking or baking something for your neighbors</h3>
+                <img src="Teacher.jpg" id="teacher" class="icons">
+                <h3 id="bulletthree" class="bullets">Talking to your teacher(s)/staff/colleague(s) about how their weekend went</h3>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("left").addEventListener("click", function() {
+            var currentSlide = document.querySelector('input[name="slider"]:checked');
+            var prevSlide = currentSlide.previousElementSibling || document.querySelector('input[name="slider"]:last-of-type');
+            currentSlide.checked = false;
+            prevSlide.checked = true;
+        });
+    
+        document.getElementById("right").addEventListener("click", function() {
+            var currentSlide = document.querySelector('input[name="slider"]:checked');
+            var nextSlide = currentSlide.nextElementSibling || document.querySelector('input[name="slider"]:first-of-type');
+            
+            if (currentSlide.id === "slide4") {
+                document.getElementById("slide1").checked = true;
+            } else {
+                currentSlide.checked = false;
+                nextSlide.checked = true;
+            }
+        });
+        document.getElementById("button").addEventListener("click", function() {
+            var iframe = document.getElementById("iframe");
+            iframe.style.display = "block";
+
+            var everythingDiv = document.getElementById("everything");
+            var allElements = everythingDiv.children;
+            // document.body.style.overflowY = "hidden";
+            for (var i = 0; i < allElements.length; i++) {
+                allElements[i].style.filter = "blur(3px)";
+                allElements[i].style.opacity = 0.3;
+            }
+            var button = document.getElementById("close");
+            button.style.display = "block";
+        });
+        document.getElementById("close").addEventListener("click", function() {
+            var iframe = document.getElementById('iframe');
+            iframe.style.display = "none";
+            var everythingDiv = document.getElementById("everything");
+            var allElements = everythingDiv.children;
+            for (var i = 0; i < allElements.length; i++) {
+                allElements[i].style.filter = "blur(0px)";
+                allElements[i].style.opacity = 1;
+            }
+            var button = document.getElementById("close");
+            button.style.display = "none";
+            document.body.style.overflowY = "auto";
+
+        });
+
+
+
+
+
+
+    </script>
+    
+    
+</body>
+</html>
